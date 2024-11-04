@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Varalakshmi Duggineni - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #4ecdc4;
+            --dark-bg: #2c3e50;
+            --light-text: #ecf0f1;
+            --section-padding: 5rem 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #1a1a1a;
+            color: var(--light-text);
+        }
+
+        /* Header Styles */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-bg), #1a1a1a);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(78, 205, 196, 0.1), transparent);
+            pointer-events: none;
+        }
+
+        .nav-container {
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(44, 62, 80, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar {
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .navbar a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: var(--primary-color);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 8rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--secondary-color);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Profile Image */
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 2rem auto;
+            border: 4px solid var(--primary-color);
+            object-fit: cover;
+        }
+
+        /* Sections */
+        section {
+            padding: var(--section-padding);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .skill-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            margin-bottom: 1.5rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Resume Section */
+        .resume-container {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            margin: 2rem 0;
+            font-size: 1.2rem;
+        }
+
+        .contact-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: var(--light-text);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .navbar {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="nav-container">
+            <nav class="navbar">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#resume">Resume</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+        <div class="hero-content">
+            <h1>Varalakshmi Duggineni</h1>
+            <h2>Web Developer | Designer | Creator</h2>
+            <img src="WhatsApp Image 2024-10-02 at 00.11.20.jpeg" alt="Varalakshmi Duggineni" class="profile-img">
+            <p>Building digital experiences that matter</p>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="section-title">
+            <h2>About Me</h2>
+        </div>
+        <p>As a tech-savvy and adaptable B.Tech graduate, I’m excited to dive into a variety of roles where I can put my skills to good
+            use. I love solving problems and finding innovative solutions, and I’m always eager to keep learning and growing. I’m ready
+            to bring fresh ideas and make a real impact, no matter the industry.</p>
+    </section>
+
+    <section id="skills">
+        <div class="section-title">
+            <h2>Skills</h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fas fa-code"></i>
+                <h3>HTML</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-paint-brush"></i>
+                <h3>CSS</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-laptop-code"></i>
+                <h3>JavaScript</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-java"></i>
+                <h3>Java</h3>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-database"></i>
+                <h3>SQL</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="section-title">
+            <h2>Projects</h2>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">Landing Page</h3>
+                    <p class="project-description">A fully functioning landing page using HTML, CSS, and Javascript. This is my mini project that I did in CODSOFT as one of my tasks.</p>
+                    <a href="https://varalakshmi79811.github.io/CODSOFT_Landingpage/" class="project-link">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">Language and slang evolution using NLP</h3>
+                    <p class="project-description">Coordinated the investigation of language evolution using natural language processing (NLP) and machine learning
+                        techniques. Achieved a 93.75 percent accuracy rate with a hybrid model, contributing to advancements in language prediction and modeling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resume">
+        <div class="section-title">
+            <h2>Resume</h2>
+        </div>
+        <div class="resume-container">
+            <object data="portfolio/VaralakshmiDuggineni_VIT-AP_21BCE7591.pdf" type="application/pdf" width="100%" height="600px">
+                <p>It appears you don't have a PDF plugin for this browser. No worries, you can <a href="VaralakshmiDuggineni_VIT-AP_21BCE7591.pdf"  style="color: #3498db; text-decoration: none; font-weight: bold; transition: color 0.3s ease, transform 0.3s ease; position: relative;"
+                    onmouseover="this.style.color='#2ecc71'; this.style.transform='scale(1.1)';"
+                    onmouseout="this.style.color='#3498db'; this.style.transform='scale(1)';">click here to download the PDF file.</a></p>
+            </object>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-title">
+            <h2>Contact Me</h2>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <p>Email: <a href="mailto:varalakshmi6324@gmail.com">varalakshmi6324@gmail.com</a></p>
+                <p>linkedin: <a href="https://www.linkedin.com/in/duggineni-varalakshmi-bba45b246/">@Varalakshmi_Duggineni</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.instagram.com/varalakshmi_ig/"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/varalakshmi79811"><i class="fab fa-github"></i></a>
+            <a href="https://twitter.com/varalakshmi6324"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p>&copy; 2024 Varalakshmi Duggineni</p>
+    </footer>
+</body>
+</html>
